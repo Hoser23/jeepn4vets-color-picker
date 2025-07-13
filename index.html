@@ -30,12 +30,6 @@
       margin-top: 40px;
       font-weight: bold;
     }
-    .color-image {
-      margin-top: 30px;
-      max-width: 300px;
-      height: auto;
-      display: none;
-    }
     .footer-banner {
       margin-top: 50px;
       max-width: 100%;
@@ -52,25 +46,20 @@
   <h1>Jeep'N 4 Vets - Tap to Pick a Color</h1>
   <button onclick="pickColor()">Pick a Color</button>
   <div class="result" id="result"></div>
-  <img id="colorImage" class="color-image" src="" alt="Selected Color Image" />
 
   <a class="footer-link" href="https://www.facebook.com/profile.php?id=61577231272325" target="_blank">
-    <img class="footer-banner" src="jeepn4vets-banner.jpg" alt="Jeep'N 4 Vets Banner" />
+    <img class="footer-banner" src="Jeepn4vets-banner.jpg" alt="Jeep'N 4 Vets Banner" />
   </a>
 
   <script>
     const colors = ["White", "Blue", "Yellow", "Pink", "Red", "Green"];
-    };
 
     function pickColor() {
       const result = document.getElementById("result");
-      const image = document.getElementById("colorImage");
       const randomIndex = Math.floor(Math.random() * colors.length);
       const selected = colors[randomIndex];
       result.textContent = selected;
       result.style.color = selected.toLowerCase();
-      image.src = images[selected];
-      image.style.display = 'block';
     }
   </script>
 </body>
