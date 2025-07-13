@@ -34,33 +34,42 @@
       background-color: #ffffff;
       color: black;
       display: inline-block;
+      transition: opacity 0.3s ease;
+      opacity: 1;
     }
-    .footer-banner {
-      display: none;
+    .fade {
+      opacity: 0;
     }
   </style>
 </head>
 <body>
   <h1>Jeep'N 4 Vets - Tap to Pick a Color</h1>
   <button onclick="pickColor()">Pick a Color</button>
-  <div class="result" id="result">&nbsp;</div>
+  <div class="result" id="result"></div>
 
   <script>
     const colors = ["White", "Blue", "Yellow", "Pink", "Red", "Green"];
 
     function pickColor() {
       const result = document.getElementById("result");
-      const randomIndex = Math.floor(Math.random() * colors.length);
-      const selected = colors[randomIndex];
-      result.textContent = `New: ${selected}`;
-      result.style.backgroundColor = selected.toLowerCase();
 
-      // Adjust text color for visibility
-      if (["yellow", "white", "pink"].includes(selected.toLowerCase())) {
-        result.style.color = "black";
-      } else {
-        result.style.color = "white";
-      }
+      // Force fade out and wait briefly
+      result.classList.add("fade");
+      setTimeout(() => {
+        const randomIndex = Math.floor(Math.random() * colors.length);
+        const selected = colors[randomIndex];
+
+        result.textContent = `New: ${selected}`;
+        result.style.backgroundColor = selected.toLowerCase();
+
+        if (["yellow", "white", "pink"].includes(selected.toLowerCase())) {
+          result.style.color = "black";
+        } else {
+          result.style.color = "white";
+        }
+
+        result.classList.remove("fade");
+      }, 200);
     }
   </script>
 </body>
