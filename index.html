@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jeep'N 4 Vets - Color Picker</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      background-color: #f4f4f4;
+      padding: 50px;
+    }
+    h1 {
+      font-size: 2rem;
+    }
+    button {
+      padding: 15px 30px;
+      font-size: 1.5rem;
+      border: none;
+      background-color: #444;
+      color: white;
+      cursor: pointer;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+    .result {
+      font-size: 3rem;
+      margin-top: 40px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Jeep'N 4 Vets - Tap to Pick a Color</h1>
+  <button onclick="pickColor()">Pick a Color</button>
+  <div class="result" id="result"></div>
+
+  <script>
+    const colors = ["White", "Blue", "Yellow", "Pink", "Red", "Green"];
+
+    function pickColor() {
+      const result = document.getElementById("result");
+      const randomIndex = Math.floor(Math.random() * colors.length);
+      const selected = colors[randomIndex];
+      result.textContent = selected;
+      result.style.color = selected.toLowerCase();
+    }
+  </script>
+</body>
+</html>
