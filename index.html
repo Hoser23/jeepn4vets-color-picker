@@ -29,6 +29,11 @@
       font-size: 3rem;
       margin-top: 40px;
       font-weight: bold;
+      padding: 20px;
+      border-radius: 10px;
+      background-color: #ffffff;
+      color: black;
+      display: inline-block;
     }
     .footer-banner {
       margin-top: 50px;
@@ -45,10 +50,10 @@
 <body>
   <h1>Jeep'N 4 Vets - Tap to Pick a Color</h1>
   <button onclick="pickColor()">Pick a Color</button>
-  <div class="result" id="result"></div>
+  <div class="result" id="result">&nbsp;</div>
 
   <a class="footer-link" href="https://www.facebook.com/profile.php?id=61577231272325" target="_blank">
-    <img class="footer-banner" src="Jeepn4vets-banner.jpg" alt="Jeep'N 4 Vets Banner" />
+    <img class="footer-banner" src="jeepn4vets-banner.jpg" alt="Jeep'N 4 Vets Banner" />
   </a>
 
   <script>
@@ -59,7 +64,14 @@
       const randomIndex = Math.floor(Math.random() * colors.length);
       const selected = colors[randomIndex];
       result.textContent = selected;
-      result.style.color = selected.toLowerCase();
+      result.style.backgroundColor = selected.toLowerCase();
+
+      // Adjust text color for visibility
+      if (selected.toLowerCase() === "yellow" || selected.toLowerCase() === "white" || selected.toLowerCase() === "pink") {
+        result.style.color = "black";
+      } else {
+        result.style.color = "white";
+      }
     }
   </script>
 </body>
