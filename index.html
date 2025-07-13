@@ -8,8 +8,9 @@
     body {
       font-family: sans-serif;
       text-align: center;
-      background-color: #f4f4f4;
+      background-color: #1e1e1e;
       padding: 50px;
+      color: white;
     }
     h1 {
       font-size: 2rem;
@@ -29,22 +30,54 @@
       margin-top: 40px;
       font-weight: bold;
     }
+    .color-image {
+      margin-top: 30px;
+      max-width: 300px;
+      height: auto;
+      display: none;
+    }
+    .footer-banner {
+      margin-top: 50px;
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+    .footer-link {
+      display: inline-block;
+      margin-top: 20px;
+    }
   </style>
 </head>
 <body>
   <h1>Jeep'N 4 Vets - Tap to Pick a Color</h1>
   <button onclick="pickColor()">Pick a Color</button>
   <div class="result" id="result"></div>
+  <img id="colorImage" class="color-image" src="" alt="Selected Color Image" />
+
+  <a class="footer-link" href="https://www.facebook.com/profile.php?id=61577231272325" target="_blank">
+    <img class="footer-banner" src="https://chat.openai.com/mnt/data/485310695_620596190847031_5776400831270417780_n%20(1).jpg" alt="Jeep'N 4 Vets Banner" />
+  </a>
 
   <script>
     const colors = ["White", "Blue", "Yellow", "Pink", "Red", "Green"];
+    const images = {
+      White: "https://via.placeholder.com/300x200/ffffff/000000?text=White",
+      Blue: "https://via.placeholder.com/300x200/0000ff/ffffff?text=Blue",
+      Yellow: "https://via.placeholder.com/300x200/ffff00/000000?text=Yellow",
+      Pink: "https://via.placeholder.com/300x200/ff69b4/000000?text=Pink",
+      Red: "https://via.placeholder.com/300x200/ff0000/ffffff?text=Red",
+      Green: "https://via.placeholder.com/300x200/008000/ffffff?text=Green"
+    };
 
     function pickColor() {
       const result = document.getElementById("result");
+      const image = document.getElementById("colorImage");
       const randomIndex = Math.floor(Math.random() * colors.length);
       const selected = colors[randomIndex];
       result.textContent = selected;
       result.style.color = selected.toLowerCase();
+      image.src = images[selected];
+      image.style.display = 'block';
     }
   </script>
 </body>
